@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="403.0" prefWidth="571.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fg.VierGewinnt.VierGFX.GuiController">
+    <HBox fx:id="inserts_hb" layoutX="67.0" layoutY="4.0" prefHeight="32.0" prefWidth="328.0" spacing="13.5" visible="false" AnchorPane.topAnchor="7.0">
+        <Circle fx:id="in1_b" fill="RED" onMouseClicked="#in1" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+        <Circle fx:id="in2_b" fill="RED" layoutX="10.0" layoutY="10.0" onMouseClicked="#in2" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+        <Circle fx:id="in3_b" fill="RED" layoutX="36.0" layoutY="10.0" onMouseClicked="#in3" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+        <Circle fx:id="in4_b" fill="RED" layoutX="61.0" layoutY="10.0" onMouseClicked="#in4" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+        <Circle fx:id="in5_b" fill="RED" layoutX="87.0" layoutY="10.0" onMouseClicked="#in5" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+        <Circle fx:id="in6_b" fill="RED" layoutX="112.0" layoutY="10.0" onMouseClicked="#in6" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+        <Circle fx:id="in7_b" fill="RED" layoutX="138.0" layoutY="10.0" onMouseClicked="#in7" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="2.0" />
+    </HBox>
+   <HBox fx:id="inserts_hbt" layoutX="67.0" mouseTransparent="true" prefHeight="32.0" prefWidth="261.0" spacing="13.5" visible="false" AnchorPane.topAnchor="7.0">
+      <children>
+         <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="31.859375">
+            <font>
+               <Font size="22.0" />
+            </font>
+         </Text>
+          <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="2" textAlignment="CENTER" wrappingWidth="31.859375">
+              <font>
+                  <Font size="22.0" />
+              </font>
+          </Text>
+          <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="3" textAlignment="CENTER" wrappingWidth="31.859375">
+              <font>
+                  <Font size="22.0" />
+              </font>
+          </Text>
+          <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="4" textAlignment="CENTER" wrappingWidth="31.859375">
+              <font>
+                  <Font size="22.0" />
+              </font>
+          </Text>
+          <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="5" textAlignment="CENTER" wrappingWidth="31.859375">
+              <font>
+                  <Font size="22.0" />
+              </font>
+          </Text>
+          <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="6" textAlignment="CENTER" wrappingWidth="31.859375">
+              <font>
+                  <Font size="22.0" />
+              </font>
+          </Text>
+          <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="7" textAlignment="CENTER" wrappingWidth="31.859375">
+              <font>
+                  <Font size="22.0" />
+              </font>
+          </Text>
+      </children></HBox>
+    <GridPane fx:id="grid" layoutX="58.0" layoutY="56.0" prefHeight="275.0" prefWidth="319.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+    </GridPane>
+    <HBox layoutY="41.0" prefHeight="362.0" prefWidth="627.0">
+        <ImageView fitHeight="354.0" fitWidth="428.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@4g.png" />
+        </ImageView>
+        <VBox prefHeight="352.0" prefWidth="206.0" spacing="1.0" style="-fx-border-color: lightgrey; -fx-border-width: 3;">
+            <HBox.margin>
+                <Insets bottom="2.0" />
+            </HBox.margin>
+            <padding>
+                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+            </padding>
+            <Label text="Spieler 1 - Rot:" />
+            <CheckBox fx:id="ai_cb1" mnemonicParsing="false" text="Computer" />
+            <Separator prefWidth="200.0">
+                <VBox.margin>
+                    <Insets top="5.0" />
+                </VBox.margin>
+            </Separator>
+            <Label layoutX="13.0" layoutY="13.0" text="Spieler 2 - Gelb:" />
+            <CheckBox fx:id="ai_cb2" layoutX="13.0" layoutY="52.0" mnemonicParsing="false" selected="true" text="Computer" />
+            <Separator layoutX="13.0" layoutY="49.0" prefWidth="200.0">
+                <VBox.margin>
+                    <Insets top="5.0" />
+                </VBox.margin>
+            </Separator>
+            <GridPane hgap="3.0" vgap="3.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" prefWidth="100.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <Label text="Optionen:">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label text="CPU1" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label text="CPU2" GridPane.columnIndex="2">
+                    <font>
+                        <Font name="System Bold" size="13.0" />
+                    </font>
+                </Label>
+                <Label prefHeight="18.0" prefWidth="127.0" text="Zeitlimit (msec):" GridPane.rowIndex="1" />
+                <Label prefHeight="18.0" prefWidth="127.0" text="Threads:" GridPane.rowIndex="2" />
+
+                <TextField fx:id="ki_tl1" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="25.0" text="1000" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="ki_tl2" alignment="CENTER_RIGHT" text="1000" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <TextField fx:id="ki_nt1" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="104.0" text="4" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="ki_nt2" alignment="CENTER_RIGHT" text="4" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <TextField fx:id="ki_md1" alignment="CENTER_RIGHT" text="5" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="ki_md2" alignment="CENTER_RIGHT" text="5" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label text="Max Tiefe:" GridPane.rowIndex="3" />
+            </GridPane>
+            <HBox layoutX="16.0" layoutY="128.0" />
+            <Separator prefWidth="200.0">
+                <VBox.margin>
+                    <Insets top="5.0" />
+                </VBox.margin>
+            </Separator>
+            <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="200.0" spacing="10.0">
+                <Button fx:id="start_b" defaultButton="true" mnemonicParsing="false" onAction="#start" prefWidth="72.0" scaleShape="false" text="Start" />
+                <Button fx:id="stop_b" cancelButton="true" disable="true" mnemonicParsing="false" onAction="#stop" text="Stop" />
+            <Button fx:id="reset_b" disable="true" layoutX="102.0" layoutY="10.0" mnemonicParsing="false" onAction="#reset" text="Reset" />
+            </HBox>
+            <ProgressBar fx:id="progress_pb" prefHeight="23.0" prefWidth="245.0" progress="0.0">
+                <padding>
+                    <Insets top="5.0" />
+                </padding>
+            </ProgressBar>
+        </VBox>
+      <padding>
+         <Insets bottom="4.0" left="5.0" right="5.0" top="4.0" />
+      </padding>
+    </HBox>
+    <Circle fill="RED" layoutX="547.0" layoutY="66.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+    <Circle fill="YELLOW" layoutX="547.0" layoutY="113.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+    <TextArea fx:id="info_ta" editable="false" layoutX="67.0" layoutY="349.0" prefHeight="46.0" prefWidth="295.0" style="-fx-control-inner-background:#000000; -fx-font-family: Consolas; -fx-highlight-fill: #00ff00; -fx-highlight-text-fill: #000000; -fx-text-fill: #00ff00; " text="&gt;" AnchorPane.bottomAnchor="5.0" AnchorPane.topAnchor="351.0">
+        <font>
+            <Font size="9.0" />
+        </font>
+    </TextArea>
+</AnchorPane>
