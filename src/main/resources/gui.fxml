@@ -106,10 +106,14 @@
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="25.0" prefWidth="100.0" />
                 </columnConstraints>
                 <rowConstraints>
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="25.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+               <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                 </rowConstraints>
                 <Label text="Optionen:">
                     <font>
@@ -133,9 +137,21 @@
                 <TextField fx:id="ki_tl2" alignment="CENTER_RIGHT" text="1000" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                 <TextField fx:id="ki_nt1" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="104.0" text="4" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                 <TextField fx:id="ki_nt2" alignment="CENTER_RIGHT" text="4" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <TextField fx:id="ki_md1" alignment="CENTER_RIGHT" text="5" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="ki_md2" alignment="CENTER_RIGHT" text="5" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextField fx:id="ki_md1" alignment="CENTER_RIGHT" text="9" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="ki_md2" alignment="CENTER_RIGHT" text="9" GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <Label text="Max Tiefe:" GridPane.rowIndex="3" />
+            <Label text="AB-Pruning:" GridPane.rowIndex="4" />
+            <Label text="HashMap:" GridPane.rowIndex="5" />
+            <Label text="Vorsortierung:" GridPane.rowIndex="6" />
+            <CheckBox fx:id="ki_ab1" mnemonicParsing="false" selected="true" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <CheckBox fx:id="ki_ab2" mnemonicParsing="false" selected="true" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <CheckBox fx:id="ki_hm1" mnemonicParsing="false" selected="true" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <CheckBox fx:id="ki_hm2" mnemonicParsing="false" selected="true" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <CheckBox fx:id="ki_ps1" mnemonicParsing="false" selected="true" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <CheckBox fx:id="ki_ps2" mnemonicParsing="false" selected="true" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label text="Gewichtung:" GridPane.rowIndex="7" />
+            <CheckBox fx:id="ki_sw1" mnemonicParsing="false" selected="true" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <CheckBox fx:id="ki_sw2" mnemonicParsing="false" selected="true" GridPane.columnIndex="2" GridPane.rowIndex="7" />
             </GridPane>
             <HBox layoutX="16.0" layoutY="128.0" />
             <Separator prefWidth="200.0">

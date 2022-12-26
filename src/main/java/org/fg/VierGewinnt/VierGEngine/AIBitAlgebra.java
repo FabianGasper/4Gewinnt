@@ -2,12 +2,23 @@ package org.fg.VierGewinnt.VierGEngine;
 
 import org.fg.VierGewinnt.VierGModel.Stone;
 
+import java.util.Random;
+
 public class AIBitAlgebra {
 
     //Anzahl der möglichen 4er die von dieser Position aus möglich sind
     private static final int[][] weightMatrix = {
             {3, 4, 5, 5, 4, 3}, {4, 6, 8, 8, 6, 4}, {5, 8, 11, 11, 8, 5},
             {7, 10, 13, 13, 10, 7}, {5, 8, 11, 11, 8, 5}, {4, 6, 8, 8, 6, 4}, {3, 4, 5, 5, 4, 3}};
+
+    private static final long[][][] zKeyMap = new long[7][6][2];
+    static {
+        for(int i=0;i<7;i++)
+            for(int j=0;j<6;j++)
+                for(int k=0;k<2;k++){
+                    zKeyMap[i][j][k]=new Random().nextLong();
+                }
+    }
 
     public static boolean isFull(long r, long y, int col) {
         // Bit-shift um 8Bit * Anzahl Columns um gesuchte Spalte auf col1 zu ziehen
@@ -286,4 +297,12 @@ public class AIBitAlgebra {
         return 31 * (int) (r ^ (r >>> 32)) + (int) (y ^ (y >>> 32));
     }
 
+    public static long getZHash(long zKey, int col, int row,boolean turn) {
+        //https://en.wikipedia.org/wiki/Zobrist_hashing
+        return (zKey ^ zKeyMap[col][row][turn?0:1]);
+    }
+
+    public static long mergeInts(int i1, int i2){
+        return ((long) i1) & (((long) i2) <<32);
+    }
 }

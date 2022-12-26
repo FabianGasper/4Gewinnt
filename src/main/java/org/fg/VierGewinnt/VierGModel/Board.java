@@ -11,14 +11,11 @@ public class Board {
     private long yellow = 0L;
     private int stat = 0;
     private boolean turn = true;
+    private long zKey =0;
     private final List<Integer> moveHist = new ArrayList<>();
 
     public boolean isFull(int i) {
         return AIBitAlgebra.isFull(red, yellow, i);
-    }
-
-    public boolean isEmpty(int i) {
-        return AIBitAlgebra.isEmpty(red, yellow, i);
     }
 
     public void add(int i) {
@@ -27,19 +24,11 @@ public class Board {
         if (turn) red = AIBitAlgebra.set(red, i, pos);
         else yellow = AIBitAlgebra.set(yellow, i, pos);
         stat = AIBitAlgebra.addStat(stat, i);
+        zKey = AIBitAlgebra.getZHash(zKey,i,pos,turn);
         moveHist.add(i);
         turn = !turn;
     }
 
-    public void remove(int i) {
-        if (isEmpty(i)) return;
-        int pos = AIBitAlgebra.getRowPos(red, yellow, i);
-        if (turn) red = AIBitAlgebra.remove(red, i, pos);
-        else yellow = AIBitAlgebra.remove(yellow, i, pos);
-        stat = AIBitAlgebra.removeStat(stat, i);
-        moveHist.remove(moveHist.size() - 1);
-        turn = !turn;
-    }
 
     public boolean getTurn() {
         return turn;
@@ -73,4 +62,7 @@ public class Board {
         return AIBitAlgebra.isWon(red) || AIBitAlgebra.isWon(yellow);
     }
 
+    public long getZKey() {
+        return zKey;
+    }
 }

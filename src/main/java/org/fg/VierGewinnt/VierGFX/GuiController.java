@@ -49,6 +49,14 @@ public class GuiController {
     public TextField ki_md1;
     public TextField ki_md2;
     public Button stop_b;
+    public CheckBox ki_ab1;
+    public CheckBox ki_ab2;
+    public CheckBox ki_hm1;
+    public CheckBox ki_hm2;
+    public CheckBox ki_ps1;
+    public CheckBox ki_ps2;
+    public CheckBox ki_sw1;
+    public CheckBox ki_sw2;
     private AI ai1;
     private AI ai2;
     private final Node[][] gridNodes = new Node[7][6];
@@ -109,13 +117,22 @@ public class GuiController {
         start_b.setDisable(true);
         reset_b.setDisable(false);
         stop_b.setDisable(false);
-        if (ai_cb1.isSelected()) {
-            ai1 = new AI(getSettings1(), board);
+        try {
+            if (ai_cb1.isSelected()) {
+                ai1 = new AI(getSettings1(), board);
+            }
+            if (ai_cb2.isSelected()) {
+                ai2 = new AI(getSettings2(), board);
+            }
+            advance();
+        }catch (IllegalArgumentException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Einstellungsfehler");
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
+            reset();
         }
-        if (ai_cb2.isSelected()) {
-            ai2 = new AI(getSettings2(), board);
-        }
-        advance();
     }
 
     private void initGui() {
@@ -139,11 +156,13 @@ public class GuiController {
 
         if (board.isWon()) {
             log("Fertig: " + (!board.getTurn() ? "Spieler 1 (rot)" : "Spieler 2 (gelb)") + " hat gewonnen");
+            stop_b.setDisable(true);
             render();
             return;
         }
         if (board.isDraw()) {
             log("Fertig: unentschieden");
+            stop_b.setDisable(true);
             render();
             return;
         }
@@ -179,7 +198,12 @@ public class GuiController {
         task = new Task<>() {
             @Override
             protected Integer call() {
-                return ai.advance(this);
+                try{
+                    return ai.advance(this);
+                }catch (Exception e){
+                    e.printStackTrace();
+                    throw e;
+                }
             }
         };
         task.setOnSucceeded(t -> taskCompleted(ai, timeline));
@@ -203,9 +227,12 @@ public class GuiController {
         }
         int next = ki.getLastChoice();
         log("KI (" + (board.getTurn() ? "Spieler 1 (rot)" : "Spieler 2 (gelb)") + ") hat gespielt: " + (next + 1));
-        log(">>> Die Position wurde bewertet mit: " + ki.getLastValue());
+        for (String s : ki.report()){
+            log(">>> "+s);
+        }
         board.add(next);
-        advance();
+        if(start_b.isDisabled())
+            advance();
     }
 
     private void playerAdvance() {
@@ -248,7 +275,10 @@ public class GuiController {
         s.maxDepth = Integer.parseInt(ki_md1.getText());
         s.numThreads = Integer.parseInt(ki_nt1.getText());
         s.tLimit = Integer.parseInt(ki_tl1.getText());
-        s.useStatWeight = false;
+        s.useStatWeight = ki_sw1.isSelected();
+        s.useABPruning=ki_ab1.isSelected();
+        s.usePreSort=ki_ps1.isSelected();
+        s.useHash=ki_hm1.isSelected();
         return new AISettings(s);
     }
 
@@ -257,7 +287,10 @@ public class GuiController {
         s.maxDepth = Integer.parseInt(ki_md2.getText());
         s.numThreads = Integer.parseInt(ki_nt2.getText());
         s.tLimit = Integer.parseInt(ki_tl2.getText());
-        s.useStatWeight = true;
+        s.useStatWeight = ki_sw2.isSelected();
+        s.useABPruning=ki_ab2.isSelected();
+        s.usePreSort=ki_ps2.isSelected();
+        s.useHash=ki_hm2.isSelected();
         return new AISettings(s);
     }
 
